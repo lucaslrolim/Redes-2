@@ -27,6 +27,9 @@ p{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
+p.tall{
+  line-height:180%;
+}
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
@@ -255,3 +258,18 @@ html, body {
   z-index: 99;
 }
 
+.demo-card-event.mdl-card {
+  width: 860px;
+  height: 220px;
+  background: #303F9F;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event {
+  color: #fff;
+}
