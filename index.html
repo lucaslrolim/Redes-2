@@ -106,29 +106,56 @@
                     <p align = "justify">
                     Ao longo do desenvolvimento deste trabalho, portanto, vamos analisar não só o conceito da varredura de portas, mas também as implicações e os ferramentais mais importantes para o bom entendimento deste tópico.
                     </p>
+                    <center>
+                    <img vspace="50" src="images/ilustracao-conceitual-ps.gif" alt="conceito part scanning">
+                    </center>
                 </div>
 
               </section>
-             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--10dp">
-                   <!-- Square card -->
-                    <style>
-                    .demo-card-square.mdl-card {
-                      width: 860px;
-                      height: 320px;
-                    }
-                    .demo-card-square > .mdl-card__title {
-                      color: #fff;
-                      background:
-                        url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-                    }
-                    </style>
 
+            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div  class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">Conceitos Essenciais</h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                   <img src="images/connect.png" alt="Porta">
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h4>Porta</h4>
+                     <p align = "justify">
+                    Portas são um mecanismo essencial de todo computador. Elas proporcionam as interfaces de saída e entrada que o dispositivo precisa para se comunicar com periféricos e outros computadores em uma rede local ou internet.
+                    </p>
+                    <p align = "justify">
+                    Uma porta pode ser física ou virtual. Portas físicas, como por exemplo portas ethernet e portas USB, são usadas para aplicações com roteadores e outros periféricos. Portas virtuais, que serão as quais daremos maior atenção neste trabalho, como as dos padrões TCP e UDP, são usadas para estabelecer a conexão e troca de serviços e dados entre computadores em rede.
+                    </p>
+                      <ul align = "justify"><b>0 até 1023 </b> - São as consideradas “portas conhecidas”. Portas nesse intervalo são fornecidas apenas para serviços estabelecidos e grandes empresas ou centros de pesquisa de confiança.</p></ul>
+                      <ul align = "justify"><b>1024 até 49151 </b>- São as chamadas “portas registradas”. Esse nome significa que as portas nesse intervalo podem ser registradas para protocolos específicos por grandes corporações.</ul>
+                      <ul align = "justify"><b>49152 até 65535 </b> - É o intervalo que engloba as portas dinâmicas e as portas privadas. Portas nesse intervalo podem ser usadas por praticamente qualquer um e, portanto, são as com maior probabilidade de haver vulnerabilidade.</ul>
+
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                 <img src="images/firewall.png" alt="Firewall">
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h4>Firewall</h4>
+                   <p align = "justify">
+                    Firewall é um dispositivo de segurança de rede, baseado em software ou hardware, que controla a entrada e saída de tráfego da rede baseado em um conjunto de regras pré estabelecidas.
+                  </p>
+                  <p align = "justify">
+                    Quando estamos falando de varredura de portas o  Firewall é considerado o melhor tipo de defesa em que se pode investir. Um Firewall pode ser configurado para negar acesso ou tornar “invisível” o estado das portas para requisições que sigam determinado padrão ou cumpram certos requisitos. Dessa forma, o computador defendido fica de certa forma invisível para visitantes ou sistemas de requisição indesejados ou maliciosos.
+                  </p>
+                </div>
+          </section>
+
+             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--10dp">
                     <div class="demo-card-square mdl-card mdl-shadow--2dp">
                       <div class="mdl-card__title mdl-card--expand">
                         <h2 class="mdl-card__title-text">Direitos Autorais:</h2>
                       </div>
                       <div class="mdl-card__supporting-text">
+                      <p align = "justify">
                         "Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos, tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de domínio público tal como idéias e conceitos de terceiros, mesmo que sejam encontrados na Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à suspensão;"
+                     </p>
                       </div>
                     </div>
              </section>
@@ -144,12 +171,16 @@
                 <a href="#biblio2">Lorem ipsum</a>
                 <a href="#biblio3">Lorem ipsum</a>
                 <a href="#biblio4">Lorem ipsum</a>
-                <a href="#biblio15">Lorem ipsum</a>
+                <a href="#biblioImagens">Imagens</a>
               </ul>
 
               <p id="#biblio1">
               <!-- exemplo apagar depois -->
               [1] Diego Kreutz et al; Software-Defined Networking: A Comprehensive Survey.
+              </p>
+              <p id="#biblioImagens">
+              <li>[1] Ícone Firewall disponibilizado por Madebyoliver</li>
+              <li>[2] Ícone Connect disponibilizado por Freepik</li>
               </p>
             </div>
           </section>

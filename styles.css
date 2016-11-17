@@ -273,3 +273,12 @@ html, body {
 .demo-card-event {
   color: #fff;
 }
+
+ .demo-card-square.mdl-card {
+  width: 860px;
+  height: 420px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background-color: #4A148C;
+}
