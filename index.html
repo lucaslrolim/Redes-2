@@ -67,7 +67,7 @@
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="#introducao" class="mdl-layout__tab is-active">Introdução</a>
-          <a href="#conceito" class="mdl-layout__tab">Conceito</a>
+          <a href="#motivacao" class="mdl-layout__tab">Motivação</a>
           <a href="#aplicacao" class="mdl-layout__tab">Aplicações</a>
           <a href="#classificacao" class="mdl-layout__tab">Classificações</a>
            <a href="#tecnicas" class="mdl-layout__tab">Principais Técnicas</a>
@@ -116,7 +116,7 @@
             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div  class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h4 class="mdl-cell mdl-cell--12-col">Conceitos Essenciais</h4>
+                <h3 class="mdl-cell mdl-cell--12-col"><b>Conceitos Essenciais</b></h3>
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
                    <img src="images/connect.png" alt="Porta">
                 </div>
@@ -161,6 +161,63 @@
              </section>
 
         </div>
+
+
+    <div class="mdl-layout__tab-panel" id="motivacao">
+            <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <h4>Importância da Varredura de portas</h4>
+                    <p align = "justify">
+                   O estudo de técnicas de varredura de porta e o bom entendimento de como gerenciar o fluxo de informações que passa
+                   pelas portas de um dispositivo vem se tornando cada vez mais importante nos dias atuais. Grande parte do aumento
+                   dessa importância advém do fato da <b>maior parte de técnicas mais avançadas de exploração de falhas de segurança
+                    utilizarem a varredura de portas como uma primeira “sondagem” em suas vítimas para encontrar pontos de ataque</b>.
+                     Outro grande fator influenciador é o crescimento de dispositivos conectados a internet. Com o possível sucesso
+                      da chamada Internet das Coisas, o número de dispositivos conectados na rede aumentará de maneira jamais
+                       vista, o que por consequência aumentará o número de portas que precisarão ser utilizadas e exigirá dos
+                        profissionais de segurança uma estruturação e gestão do fluxo de abertura e fechamento de portas de
+                         maneira muito mais eficiente.
+                    </p>
+                    <center>
+                    <img vspace="30" src="images/laptop.png" alt="Laptop Infectado">
+                    </center>
+                    <h4>Portas e os perigoes de as deixarem abertas</h4>
+                    <p align = "justify">
+                    De acordo com o Wikipédia temos a seguinte definição para uma porta:
+                    <blockquote align = "justify">Uma porta é uma conexão virtual/lógica de dados que pode ser usada por programas para
+                     trocar dados diretamente, ao invés de passar por um arquivo ou outro local de armazenamento
+                    temporário. As mais comuns são as
+                    portas do tipo TCP e UDP, que são usadas para trocar dados entre computadores na Internet.</blockquote>
+                    </p>
+                    <p align = "justify">
+                    <b>Uma porta aberta é uma superfície de ataque e um dos princípios fundamentais de Segurança da Informação é
+                    o de diminuir ao máximo as superfícies de ataque</b> e garantir que os servidores tenham mínimo possível
+                     de seus serviços e informações expostas. Dessa forma, portas abertas desnecessariamente ou de maneira
+                      imprudente podem servir de ponto de vulnerabilidade para, por exemplo, ataques de buffer overflow.
+                    </p>
+                    <p align = "justify">
+                    Portas abertas podem revelar informações sobre o sistema ou arquitetura de rede de uma possível vítima.
+                     <b>Muitas vezes é possível descobrir, por exemplo, que o usuário vítima usa alguma versão de software que possui
+                      uma vulnerabilidade já conhecida e então partir para um ataque mais avançado que utilize essa vulnerabilidade.</b>
+                  </p>
+                   <p align = "justify">
+                   Outro problema que pode ser causado pela varredura de portas, mesmo quando as portas se encontram
+                    fechadas, é o esgotamento de recursos da rede. As diversas requisições enviadas para cada porta,
+                     dependendo do volume e da frequência, podem culminar em uma negação de serviço (DoS) e prejudicar
+                     o desempenho da máquina do usuário vítima. Isso porque mesmo tratando as requisições enviadas pela
+                      varredura como inválida elas ainda consomem processamento de entrada.
+                   </p>
+                    <p align = "justify">
+                    <b>Abaixo podemos ver um exemplo de varredura realizado pelo Nmap, que iremos abordar mais afundo nesse trabalho.</b>
+                    </p>
+                   <center>
+                    <img vspace="30" src="images/verredura_exemplo.gif" alt="Exemplo de Varredura">
+                    </center>
+                </div>
+
+              </section>
+    </div>
+
 
     <div class="mdl-layout__tab-panel" id="bibliografia">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
