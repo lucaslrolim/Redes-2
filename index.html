@@ -167,8 +167,8 @@
             <div class="mdl-cell mdl-cell--12-col">
               <h4>Bibliografia</h4>
               <ul class="toc">
-                <a href="#biblio1">Software-Defined Networking: A Comprehensive Survey.</a>
-                <a href="#biblio2">Lorem ipsum</a>
+                <a href="#biblio1">ZMap: Fast Internet-wide Scanning and Its Security Applicatons</a>
+                <a href="#biblio2">Software-Defined Networking: A Comprehensive Survey</a>
                 <a href="#biblio3">Lorem ipsum</a>
                 <a href="#biblio4">Lorem ipsum</a>
                 <a href="#biblioImagens">Imagens</a>
@@ -176,7 +176,10 @@
 
               <p id="#biblio1">
               <!-- exemplo apagar depois -->
-              [1] Diego Kreutz et al; Software-Defined Networking: A Comprehensive Survey.
+              [1] Z. Durumeric, E. Wustrow, J. Alex Halderman, Univesidade de Michigan. ZMap: Fast Internet-wide Scanning and Its Security Applicatons, Agosto 2013.
+              </p>
+              <p id="#biblio2">
+              [2] Diego Kreutz et al; Software-Defined Networking: A Comprehensive Survey.
               </p>
               <p id="#biblioImagens">
               <li>[1] Ícone Firewall disponibilizado por Madebyoliver</li>
@@ -190,13 +193,13 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
               <h4><i>Modus operandi</i></h4>
-                    <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Assim como o Nmap, o Zmap envia pacotes através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o Zmap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
+                    <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Assim como o NMap, o ZMap envia pacotes através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o ZMap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
                     </p>
                     <p align = "justify">
-                     O Zmap foi feito para realizar scans de toda Internet (IPv4), mas suporta a exclusão de endereços (<i>blacklisting</i>>) das suas varreduras para melhora de performance (endereços da IANA) e outros por pedidos de administradores dos alvos. Quanto aos hosts "disponíveis" para scan, o módulo de recebimento do Zmap precisa saber se o tráfico de pacotes recebido é proveniente de respostas ao scans, ou faz parte de algum tráfico de fundo da fonte. Para que isso ocorra, campos dos pacotes enviados são preenchidos com dados que sejam replicados nos pacotes de resposta. Para cada host varrido, Zmap computa o MAC (Media Access Control) do host de destino nos campos de Número de Sequência e porta de destino (para TCP) e Número de Sequência e identificador ICMP (para ICMP).
+                     O ZMap foi feito para realizar scans de toda Internet (IPv4), mas suporta a exclusão de endereços (<i>blacklisting</i>>) das suas varreduras para melhora de performance (endereços da IANA) e outros por pedidos de administradores dos alvos. Quanto aos hosts "disponíveis" para scan, o módulo de recebimento do ZMap precisa saber se o tráfico de pacotes recebido é proveniente de respostas ao scans, ou faz parte de algum tráfico de fundo da fonte. Para que isso ocorra, campos dos pacotes enviados são preenchidos com dados que sejam replicados nos pacotes de resposta. Para cada host varrido, ZMap computa o MAC (Media Access Control) do host de destino nos campos de Número de Sequência e porta de destino (para TCP) e Número de Sequência e identificador ICMP (para ICMP).
                     </p>
                <h4>Limitações</h4>
-                    <p align = "justify">Apesar de conseguir fazer varreduras rápidas no espaço IPv4, Zmap ainda não é rápido o bastante para fazer varreduras no espaço de endereços IPv6. Além disso, o Zmap também está limitado pela velocidade da internet do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos, enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
+                    <p align = "justify">Apesar de conseguir fazer varreduras rápidas no espaço IPv4, ZMap ainda não é rápido o bastante para fazer varreduras no espaço de endereços IPv6. Além disso, o ZMap também está limitado pela velocidade da internet do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos, enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
             </div>
           </section>  
                
@@ -205,9 +208,9 @@
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                 <h4 class="mdl-cell mdl-cell--12-col">Usos experimentados</h4>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Medições de adesão de protocolo</h4>
+                  <h4>Medição de adesão de protocolo</h4>
                      <p align = "justify">
-                    Uma mesma porta deve ser varrida várias vezes ao longo de algum período de tempo, possibilitando, dessa forma, que seja identificado algum acréscimo no número de portas abertas. Caso isso aconteça, pode-se dizer que houve um aumento no protocolo usado naquela porta. Como por exemplo, pode-se configurar o Zmap para fazer varreduras constantes na porta 443, identificando possíveis variações no uso do protocolo HTTPS.
+                    Uma mesma porta deve ser varrida várias vezes ao longo de algum período de tempo, possibilitando, dessa forma, que seja identificado algum acréscimo no número de portas abertas. Caso isso aconteça, pode-se dizer que houve um aumento no protocolo usado naquela porta. Como por exemplo, pode-se configurar o ZMap para fazer varreduras constantes na porta 443, identificando possíveis variações no uso do protocolo HTTPS.
                     </p>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
@@ -219,7 +222,7 @@
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                   <h4>Monitoramento da disponibilidade de serviço</h4>
                    <p align = "justify">
-                   Estudos predecessores ao Zmap já previam que o uso do scan ICMP echo request poderiam detectar interrupções em massa da Internet. Durante o Furacão Sandy, que atingiu a costa oeste dos EUA em 2013, o Zmap foi usado para varrer a porta 443 (é usada para a comunicação com websites em geral) de todo o espaço do IPv4 a cada duas horas [1]. O observado foi que, nas localidades afetadas, houve uma queda de 30% na quantidade de portas abertas.
+                   Estudos predecessores ao ZMap já previam que o uso do scan ICMP echo request poderiam detectar interrupções em massa da Internet. Durante o Furacão Sandy, que atingiu a costa oeste dos EUA em 2013, o ZMap foi usado para varrer a porta 443 (é usada para a comunicação com websites em geral) de todo o espaço do IPv4 a cada duas horas [1]. O observado foi que, nas localidades afetadas, houve uma queda de 30% na quantidade de portas abertas.
                   </p>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
@@ -232,7 +235,20 @@
 
     </div>
 
-
+        <div class="mdl-layout__tab-panel" id="comparacoes">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4>NMap <i>vs</i> ZMap</h4>
+                    <p align = "justify">NMap e ZMap foram desenvolvidos para propósitos bem diferentes. Enquanto o NMap é otimizado para varrer um número grande de portas em um host ou num número reduzido de hosts, o ZMap é feito para varrer somente uma porta em toda a rede da Internet. A título de comparação, ao se varrer a porta 443 em um milhão de endereços IP usando o TCP SYN, foi estimado uma duração de 1h10min para o ZMap e 63 dias para o NMap [1].
+               <h4>Sondagem otimizada</h4>
+                    <p align = "justify">Enquanto o NMap adapta sua taxa de transmissão de para evitar saturar as redes da fonte e do destino, ZMap assume que a rede do alvo consegue sustentar sua taxa de envio e que, por conta da aleatoriedade nas escolhas dos alvos, não haverá perigo de sobrecarregar um caminho em comum. Na fonte, o ZMap manda tantos pacotes quanto a Placa de Rede do host permite, “pulando” o protocolo TCP/IP e gerando Ethernet frames diretamente.
+               <h4>Conexão sem estado</h4>
+                    <p align = "justify">Enquanto NMap mantém o estado de cada conexão para ter controle de hosts varridos, retransmissões e timeouts, ZMap não registra informações dos endereços varridos, ou que precisam ser varridos. Para evitar repetições de endereços e manter a aleatoriedade, esse scan usa um método chamado “permutação aleatória gerada por um grupo de multiplicação cíclica” [1]. Ao invés de fazer controle dos timeouts, ZMap aceita respostas aos pacotes enviados por toda a duração do scan.
+               <h4>Retransmissão</h4>
+                    <p align = "justify">Enquanto NMap transmite, por padrão, dois pacotes por porta e faz adaptações de retransmissão de acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de pacotes (um). Apesar de parecer que o esse scan acaba ficando defasado no quesito confiabilidade, foi estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos é varrido.
+            </div>
+          </section>  
+    </div>
 
         <footer class="mdl-mega-footer">
 
