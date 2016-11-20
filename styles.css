@@ -282,3 +282,6 @@ html, body {
   color: #fff;
   background-color: #4A148C;
 }
+blockquote {
+  font-size: 18px;
+  }
