@@ -39,6 +39,11 @@
 
     <link rel="shortcut icon" href="images/favicon.png">
 
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.deep_purple-pink.min.css">
@@ -61,300 +66,232 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Varredura de Portas</h3>
+          <h3>Name &amp; Title</h3>
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#introducao" class="mdl-layout__tab is-active">Introdução</a>
-          <a href="#motivacao" class="mdl-layout__tab">Motivação</a>
-          <a href="#aplicacao" class="mdl-layout__tab">Aplicações</a>
-          <a href="#classificacao" class="mdl-layout__tab">Classificações</a>
-           <a href="#tecnicas" class="mdl-layout__tab">Principais Técnicas</a>
-          <a href="#conclusao" class="mdl-layout__tab">Conclusão</a>
-           <a href="#bibliografia" class="mdl-layout__tab">Bibliografia</a>
+          <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+          <a href="#features" class="mdl-layout__tab">Features</a>
+          <a href="#features" class="mdl-layout__tab">Details</a>
+          <a href="#features" class="mdl-layout__tab">Technology</a>
+          <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+            <i class="material-icons" role="presentation">add</i>
+            <span class="visuallyhidden">Add</span>
+          </button>
         </div>
       </header>
       <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="introducao">
-
-            <section class="section--center mdl-grid mdl-grid--no-spacing">
-                <div class="demo-card-event mdl-card mdl-shadow--2dp">
-                    <div class="mdl-card__title mdl-card--expand">
-                      <p class="tall">
-                       <b>Alunos</b><br>
-                        Juliano Marinho<br>
-                        Lucas de Paula<br>
-                        Lucas Rolim<br>
-                        Rodrigo Haddad<br>
-                        <b>Professor:</b><br>
-                        Otto Carlos Muniz Bandeira Duarte
-                      </p>
-                    </div>
-                </div>
-                <div class="mdl-cell mdl-cell--12-col">
-                  <h4>Resumo</h4>
-
-                    <p align = "justify">Varredura de porta, também conhecida com análise de porta ou escaneamento de porta, é o nome dado à técnica usada para identificar o estado de uma porta em uma rede. O principal objetivo dessa técnica é encontrar portas abertas e, dessa forma, uma vulnerabilidade na rede ou sistema. Trata-se de uma técnica largamente utilizada por hackers para realizar ataques ou identificar alvos, uma vez que todos os computadores conectados na internet ou com uma rede local necessariamente precisam ter algumas de suas portas abertas para eventuais trocas de dados ou informações.
-                    </p>
-                    <p align = "justify">
-                     Em essência, a varredura de portas consiste em enviar mensagens para cada uma das portas da rede alvo, uma mensagem de cada vez, e analisar a resposta obtida. O tipo de resposta pode evidenciar, por exemplo, que uma determinada porta está vulnerável. Esse ato, quando feito em pequena escala, não pode ser identificado como um crime, a não ser que passe a enviar tantas requisições que possa ser considerado uma negação de serviço (DoS).
-                    </p>
-                    <p align = "justify">
-                    Uma analogia comum para o fácil entendimento é que a varredura de portas é como um bandido que toca diversas campainhas em uma rua. A resposta dos moradores, ou a ausência desses, pode identificar uma vulnerabilidade que pode ser aproveitada pelo mau elemento. Em contrapartida, o ato de tocar a campainha é perfeitamente dentro das leis, a não ser que seja com tal frequência que prejudique os moradores da residência.
-                    </p>
-                    <p align = "justify">
-                    Ao longo do desenvolvimento deste trabalho, portanto, vamos analisar não só o conceito da varredura de portas, mas também as implicações e os ferramentais mais importantes para o bom entendimento deste tópico.
-                    </p>
-                    <center>
-                    <img vspace="50" src="images/ilustracao-conceitual-ps.gif" alt="conceito part scanning">
-                    </center>
-                </div>
-
-              </section>
-
-            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div  class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h3 class="mdl-cell mdl-cell--12-col"><b>Conceitos Essenciais</b></h3>
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                   <img src="images/connect.png" alt="Porta">
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Porta</h4>
-                     <p align = "justify">
-                    Portas são um mecanismo essencial de todo computador. Elas proporcionam as interfaces de saída e entrada que o dispositivo precisa para se comunicar com periféricos e outros computadores em uma rede local ou internet.
-                    </p>
-                    <p align = "justify">
-                    Uma porta pode ser física ou virtual. Portas físicas, como por exemplo portas ethernet e portas USB, são usadas para aplicações com roteadores e outros periféricos. Portas virtuais, que serão as quais daremos maior atenção neste trabalho, como as dos padrões TCP e UDP, são usadas para estabelecer a conexão e troca de serviços e dados entre computadores em rede.
-                    </p>
-                      <ul align = "justify"><b>0 até 1023 </b> - São as consideradas “portas conhecidas”. Portas nesse intervalo são fornecidas apenas para serviços estabelecidos e grandes empresas ou centros de pesquisa de confiança.</p></ul>
-                      <ul align = "justify"><b>1024 até 49151 </b>- São as chamadas “portas registradas”. Esse nome significa que as portas nesse intervalo podem ser registradas para protocolos específicos por grandes corporações.</ul>
-                      <ul align = "justify"><b>49152 até 65535 </b> - É o intervalo que engloba as portas dinâmicas e as portas privadas. Portas nesse intervalo podem ser usadas por praticamente qualquer um e, portanto, são as com maior probabilidade de haver vulnerabilidade.</ul>
-
-                </div>
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                 <img src="images/firewall.png" alt="Firewall">
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Firewall</h4>
-                   <p align = "justify">
-                    Firewall é um dispositivo de segurança de rede, baseado em software ou hardware, que controla a entrada e saída de tráfego da rede baseado em um conjunto de regras pré estabelecidas.
-                  </p>
-                  <p align = "justify">
-                    Quando estamos falando de varredura de portas o  Firewall é considerado o melhor tipo de defesa em que se pode investir. Um Firewall pode ser configurado para negar acesso ou tornar “invisível” o estado das portas para requisições que sigam determinado padrão ou cumpram certos requisitos. Dessa forma, o computador defendido fica de certa forma invisível para visitantes ou sistemas de requisição indesejados ou maliciosos.
-                  </p>
-                </div>
+        <div class="mdl-layout__tab-panel is-active" id="overview">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+              <i class="material-icons">play_circle_filled</i>
+            </header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                <h4>Features</h4>
+                Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Read our features</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
           </section>
-
-             <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--10dp">
-                    <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                      <div class="mdl-card__title mdl-card--expand">
-                        <h2 class="mdl-card__title-text">Direitos Autorais:</h2>
-                      </div>
-                      <div class="mdl-card__supporting-text">
-                      <p align = "justify">
-                        "Este trabalho foi totalmente produzido pelos autores que declaram não terem violado os direitos autorais de terceiros, sejam eles pessoas físicas ou jurídicas. Havendo textos, tabelas e figuras transcritos de obras de terceiros com direitos autorais protegidos ou de domínio público tal como idéias e conceitos de terceiros, mesmo que sejam encontrados na Internet, os mesmos estão com os devidos créditos aos autores originais e estão incluídas apenas com o intuito de deixar o trabalho autocontido. O(s) autor(es) tem(êm) ciência dos Artigos 297 a 299 do Código Penal Brasileiro e também que o uso do artifício de copiar/colar texto de outras fontes e outras formas de plágio é um ato ilícito, condenável e passível de punição severa. No contexto da Universidade a punição não precisa se restringir à reprovação na disciplina e pode gerar um processo disciplinar que pode levar o(s) aluno(s) à suspensão;"
-                     </p>
-                      </div>
-                    </div>
-             </section>
-
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">Details</h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Lorem ipsum dolor sit amet</h5>
+                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Lorem ipsum dolor sit amet</h5>
+                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Lorem ipsum dolor sit amet</h5>
+                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                </div>
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Read our features</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Technology</h4>
+                Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa consequat elit labore incididunt elit anim.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Read our features</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
+              <li class="mdl-menu__item">Lorem</li>
+              <li class="mdl-menu__item" disabled>Ipsum</li>
+              <li class="mdl-menu__item">Dolor</li>
+            </ul>
+          </section>
+          <section class="section--footer mdl-color--white mdl-grid">
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5>Lorem ipsum dolor sit amet</h5>
+              Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
+            </div>
+            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+              <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+            </div>
+            <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5>Lorem ipsum dolor sit amet</h5>
+              Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
+            </div>
+          </section>
         </div>
-
-
-    <div class="mdl-layout__tab-panel" id="motivacao">
-            <section class="section--center mdl-grid mdl-grid--no-spacing">
-                <div class="mdl-cell mdl-cell--12-col">
-                  <h4>Importância da Varredura de portas</h4>
-                    <p align = "justify">
-                   O estudo de técnicas de varredura de porta e o bom entendimento de como gerenciar o fluxo de informações que passa
-                   pelas portas de um dispositivo vem se tornando cada vez mais importante nos dias atuais. Grande parte do aumento
-                   dessa importância advém do fato da <b>maior parte de técnicas mais avançadas de exploração de falhas de segurança
-                    utilizarem a varredura de portas como uma primeira “sondagem” em suas vítimas para encontrar pontos de ataque</b>.
-                     Outro grande fator influenciador é o crescimento de dispositivos conectados a internet. Com o possível sucesso
-                      da chamada Internet das Coisas, o número de dispositivos conectados na rede aumentará de maneira jamais
-                       vista, o que por consequência aumentará o número de portas que precisarão ser utilizadas e exigirá dos
-                        profissionais de segurança uma estruturação e gestão do fluxo de abertura e fechamento de portas de
-                         maneira muito mais eficiente.
-                    </p>
-                    <center>
-                    <img vspace="30" src="images/laptop.png" alt="Laptop Infectado">
-                    </center>
-                    <h4>Portas e os perigos de as deixarem abertas</h4>
-                    <p align = "justify">
-                    De acordo com o Wikipédia temos a seguinte definição para uma porta:
-                    <blockquote align = "justify">Uma porta é uma conexão virtual/lógica de dados que pode ser usada por programas para
-                     trocar dados diretamente, ao invés de passar por um arquivo ou outro local de armazenamento
-                    temporário. As mais comuns são as
-                    portas do tipo TCP e UDP, que são usadas para trocar dados entre computadores na Internet.</blockquote>
-                    </p>
-                    <p align = "justify">
-                    <b>Uma porta aberta é uma superfície de ataque e um dos princípios fundamentais de Segurança da Informação é
-                    o de diminuir ao máximo as superfícies de ataque</b> e garantir que os servidores tenham mínimo possível
-                     de seus serviços e informações expostas. Dessa forma, portas abertas desnecessariamente ou de maneira
-                      imprudente podem servir de ponto de vulnerabilidade para, por exemplo, ataques de buffer overflow.
-                    </p>
-                    <p align = "justify">
-                    Portas abertas podem revelar informações sobre o sistema ou arquitetura de rede de uma possível vítima.
-                     <b>Muitas vezes é possível descobrir, por exemplo, que o usuário vítima usa alguma versão de software que possui
-                      uma vulnerabilidade já conhecida e então partir para um ataque mais avançado que utilize essa vulnerabilidade.</b>
-                  </p>
-                   <p align = "justify">
-                   Outro problema que pode ser causado pela varredura de portas, mesmo quando as portas se encontram
-                    fechadas, é o esgotamento de recursos da rede. As diversas requisições enviadas para cada porta,
-                     dependendo do volume e da frequência, podem culminar em uma negação de serviço (DoS) e prejudicar
-                     o desempenho da máquina do usuário vítima. Isso porque mesmo tratando as requisições enviadas pela
-                      varredura como inválida elas ainda consomem processamento de entrada.
-                   </p>
-                    <p align = "justify">
-                    <b>Abaixo podemos ver um exemplo de varredura realizado pelo Nmap, que iremos abordar mais afundo nesse trabalho.</b>
-                    </p>
-                   <center>
-                    <img vspace="30" src="images/verredura_exemplo.gif" alt="Exemplo de Varredura">
-                    </center>
-                </div>
-
-              </section>
-    </div>
-
-    <div class="mdl-layout__tab-panel" id="tecnicas">
-            <section class="section--center mdl-grid mdl-grid--no-spacing">
-                <div class="mdl-cell mdl-cell--12-col">
-                  <h4>Principais técnicas de Varredura de Portas</h4>
-                    <h5>TCP SYN</h5>
-                    <p align = "justify">
-                      Esse é um dos tipos de varredura mais utilizados devido à sua velocidade de execução,
-                      pois em condições favoráveis é capaz de escanear milhares de portas em pouco segundos.
-                      Uma das características do TCP SYN é o fato dele ser camuflado, pois durante a sua varredura
-                      ele não completa uma conexão TCP, sendo assim menos intrusivo.
-                    </p>
-                    <p align = "justify">
-                      Nesse tipo, é enviado um pacote SYN tentando abrir uma conexão. Se for recebido uma
-                      resposta SYN/ACK significa que a porta está ouvindo e caso seja recebido um RST como resposta,
-                      a porta não estará ouvindo. O diferencial é que quando é recebido um SYN/ACK indicando porta aberta,
-                      logo é enviado um RST para cancelar a conexão, assim na maioria das vezes, não é detectado nenhuma atividade.</p>
-                    </p>
-                    <h5>TCP Connect</h5>
-                    <p align = "justify">
-                      Esse tipo é utilizado quando não é possível usar o TCP SYN. A diferença entre esses dois é que, no TCP Connect,
-                      ao receber um SYN/ACK indicando porta aberta, o sinal de RST não é enviado, mas sim um ACK, estabelecendo uma
-                      conexão com a porta. O estabelecimento dessa conexão demanda mais tempo e também é facilmente percebido por qualquer
-                      programa com o propósito de detectar alguma atividade estranha nas portas.
-                    </p>
-
-                    <h5>ICMP</h5>
-                    <p align = "justify">
-                      É o scan base de vários tipos de varredores de porta. É usado antes dos outros tipos de scan para detectar
-                      quais hosts estão conectados à rede. Um ICMP echo request é enviado para o host alvo. Se e o alvo responder
-                      com um ICMP echo reply, ele está ativo.
-                    </p>
-
-                    <h5>UDP</h5>
-                    <p align = "justify">
-                      Serviços UDP são amplamente difundidos pela rede e o escaneamento das portas que registram serviços UDP
-                      costumam ser mais lentos, pois ao enviar um pacote UDP, ele espera por um certo tempo uma resposta.
-                      Quando a resposta não chega, supõe-se que a porta está aberta, caso contrário é recebido um erro com o respectivo erro.
-                    </p>
-
-                    <h5>X-MAS Tree, TCP Null e FIN</h5>
-                    <p align = "justify">
-                      Esses três tipos de varredura tem o comportamento muito parecidos. A diferença são os flags TCP dos pacotes de sondagem.
-                      No X-mas é enviado um pacote com os flags FIN, PSH e URG ativados, No FIN é marcado o flag FIN (como o próprio nome já diz),
-                      já o TCP Null não marca nenhum flag no pacote.
-                      Quando nenhuma resposta é recebida, a porta está aberta. Caso um RST ou ACK seja recebido, significa que a porta está fechada.
-                    </p>
-
-                    <h5>Idle</h5>
-
-                      <p align = "justify">
-                        Tipo de varredura altamente camuflada devido à natureza cega. Para que funcione, são necessárias três máquinas:
-                        a do invasor, a máquina zumbi e a máquina alvo.
-                      </p>
-                      <p align = "justify">
-                        A máquina zumbi é uma máquina que não está realizando absolutamente nenhuma conexão, pois será possível saber se
-                        a porta máquina alvo está aberta através do IPID na máquina zumbi. IPID é um identificador que há em todo pacote
-                        que é incrementado sequencialmente.
-                      </p>
-                      <p align = "justify">
-                        O invasor manda um SYN/ACK para o zumbi que que não espera conexão, então ele manda um RST e retorna um IPID
-                        incrementado em um. Em seguida, a máquina invasora manda um SYN para a máquina alvo que retorna um SYN/ACK para
-                        o zumbi que novamente retorna outro RST, incrementando o IPID em mais um novamente. Assim, se a máquina invasora
-                        manda SYN/ACK novamente para o zumbi, ele retornará o RST com um IPID incrementado em dois, mostrando assim que a
-                        porta testada da máquina alvo está aberta. Quando a porta está fechada, quando o alvo recebe um SYN do invasor,
-                        ela não manda um SYN/ACK para o zumbi e ele não incrementa mais o seu IPID. Assim, quando o zumbi incrementa em
-                        um o IPDI, o alvo está fechado, caso contrário está aberto.
-                      </p>
-                    </p>
-
-                    <h5>FTP Bounce</h5>
-                    <p align = "justify">
-                      Um servidor FTP tenta enviar algum arquivo por alguma porta do host invadido e a mensagem de erro recebida diz se a porta está ou não aberta.
-                    </p>
-
-                    <h5>TCP ACK</h5>
-                    <p align = "justify">
-                      Essa técnica não consegue identificar se uma porta está ou não aberta, mas sim se há um firewall presente e
-                      quais são os conjuntos de regras que compõem esse firewall e as portas filtradas por ele
-                      Um pacote ACK é enviado, caso seja recebido um RST, então não há firewall, mas nada se pode dizer
-                      sobre a disponibilidade da porta.
-                      Quando não há resposta ou quando há sinais de erro, isso significa que há um firewall bloqueando esse pacote.
-                    </p>
-
-                    <h5>IP Protocol</h5>
-                    <p align = "justify">
-                      Muito semelhante com o UDP, porém ele envia cabeçalhos de pacote IP. Quando recebe qualquer resposta ou nenhuma, a porta é marcada como aberta.
-                    </p>
-
-                    <h5>TCP Window</h5>
-                    <p align = "justify">
-                      Muito semelhante ao ACK, porém ele diferencia a porta de aberta e fechada.
-                      Ele faz isso analisando a janela TCP do pacote RST devolvido. Essas janelas possuem
-                      valores positivos quando a porta do RST está aberta e zero quando está fechada.
-                    </p>
-                </div>
-
-              </section>
-    </div>
-
-
-    <div class="mdl-layout__tab-panel" id="bibliografia">
+        <div class="mdl-layout__tab-panel" id="features">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4>Bibliografia</h4>
+              <h4>Features</h4>
+              Minim duis incididunt est cillum est ex occaecat consectetur. Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
               <ul class="toc">
-                <a href="#biblio1">Software-Defined Networking: A Comprehensive Survey.</a>
-                <a href="#biblio2">Lorem ipsum</a>
-                <a href="#biblio3">Lorem ipsum</a>
-                <a href="#biblio4">Lorem ipsum</a>
-                <a href="#biblioImagens">Imagens</a>
+                <h4>Contents</h4>
+                <a href="#lorem1">Lorem ipsum</a>
+                <a href="#lorem2">Lorem ipsum</a>
+                <a href="#lorem3">Lorem ipsum</a>
+                <a href="#lorem4">Lorem ipsum</a>
+                <a href="#lorem5">Lorem ipsum</a>
               </ul>
 
-              <p id="#biblio1">
-              <!-- exemplo apagar depois -->
-              [1] Diego Kreutz et al; Software-Defined Networking: A Comprehensive Survey.
+              <h5 id="lorem1">Lorem ipsum dolor sit amet</h5>
+              Excepteur et pariatur officia veniam anim culpa cupidatat consequat ad velit culpa est non.
+              <ul>
+                <li>Nisi qui nisi duis commodo duis reprehenderit consequat velit aliquip.</li>
+                <li>Dolor consectetur incididunt in ipsum laborum non et irure pariatur excepteur anim occaecat officia sint.</li>
+                <li>Lorem labore proident officia excepteur do.</li>
+              </ul>
+
+              <p>
+                Sit qui est voluptate proident minim cillum in aliquip cupidatat labore pariatur id tempor id. Proident occaecat occaecat sint mollit tempor duis dolor cillum anim. Dolore sunt ea mollit fugiat in aliqua consequat nostrud aliqua ut irure in dolore. Proident aliqua culpa sint sint exercitation. Non proident occaecat reprehenderit veniam et proident dolor id culpa ea tempor do dolor. Nulla adipisicing qui fugiat id dolor. Nostrud magna voluptate irure veniam veniam labore ipsum deserunt adipisicing laboris amet eu irure. Sunt dolore nisi velit sit id. Nostrud voluptate labore proident cupidatat enim amet Lorem officia magna excepteur occaecat eu qui. Exercitation culpa deserunt non et tempor et non.
               </p>
-              <p id="#biblioImagens">
-              <li>[1] Ícone Firewall disponibilizado por Madebyoliver</li>
-              <li>[2] Ícone Connect disponibilizado por Freepik</li>
+              <p>
+                Do dolor eiusmod eu mollit dolore nostrud deserunt cillum irure esse sint irure fugiat exercitation. Magna sit voluptate id in tempor elit veniam enim cupidatat ea labore elit. Aliqua pariatur eu nulla labore magna dolore mollit occaecat sint commodo culpa. Eu non minim duis pariatur Lorem quis exercitation. Sunt qui ex incididunt sit anim incididunt sit elit ad officia id.
+              </p>
+              <p id="lorem2">
+                Tempor voluptate ex consequat fugiat aliqua. Do sit et reprehenderit culpa deserunt culpa. Excepteur quis minim mollit irure nulla excepteur enim quis in laborum. Aliqua elit voluptate ad deserunt nulla reprehenderit adipisicing sint. Est in eiusmod exercitation esse commodo. Ea reprehenderit exercitation veniam adipisicing minim nostrud. Veniam dolore ex ea occaecat non enim minim id ut aliqua adipisicing ad. Occaecat excepteur aliqua tempor cupidatat aute dolore deserunt ipsum qui incididunt aliqua occaecat sit quis. Culpa sint aliqua aliqua reprehenderit veniam irure fugiat ea ad.
+              </p>
+              <p>
+                Eu minim fugiat laborum irure veniam Lorem aliqua enim. Aliqua veniam incididunt consequat irure consequat tempor do nisi deserunt. Elit dolore ad quis consectetur sint laborum anim magna do nostrud amet. Ea nulla sit consequat quis qui irure dolor. Sint deserunt excepteur consectetur magna irure. Dolor tempor exercitation dolore pariatur incididunt ut laboris fugiat ipsum sunt veniam aute sunt labore. Non dolore sit nostrud eu ad excepteur cillum eu ex Lorem duis.
+              </p>
+              <p>
+                Id occaecat velit non ipsum occaecat aliqua quis ut. Eiusmod est magna non esse est ex incididunt aute ullamco. Cillum excepteur sint ipsum qui quis velit incididunt amet. Qui deserunt anim enim laborum cillum reprehenderit duis mollit amet ad officia enim. Minim sint et quis aliqua aliqua do minim officia dolor deserunt ipsum laboris. Nulla nisi voluptate consectetur est voluptate et amet. Occaecat ut quis adipisicing ad enim. Magna est magna sit duis proident veniam reprehenderit fugiat reprehenderit enim velit ex. Ullamco laboris culpa irure aliquip ad Lorem consequat veniam ad ipsum eu. Ipsum culpa dolore sunt officia laborum quis.
+              </p>
+
+              <h5 id="lorem3">Lorem ipsum dolor sit amet</h5>
+
+              <p id="lorem4">
+                Eiusmod nulla aliquip ipsum reprehenderit nostrud non excepteur mollit amet esse est est dolor. Dolore quis pariatur sit consectetur veniam esse ullamco duis Lorem qui enim ut veniam. Officia deserunt minim duis laborum dolor in velit pariatur commodo ullamco eu. Aute adipisicing ad duis labore laboris do mollit dolor cillum sunt aliqua ullamco. Esse tempor quis cillum consequat reprehenderit. Adipisicing proident anim eu sint elit aliqua anim dolore cupidatat fugiat aliquip qui.
+              </p>
+              <p id="lorem5">
+                Nisi eiusmod esse cupidatat excepteur exercitation ipsum reprehenderit nostrud deserunt aliqua ullamco. Anim est irure commodo eiusmod pariatur officia. Est dolor ipsum excepteur magna aliqua ad veniam irure qui occaecat eiusmod aute fugiat commodo. Quis mollit incididunt amet sit minim velit eu fugiat voluptate excepteur. Sit minim id pariatur ex cupidatat cupidatat nostrud nostrud ipsum.
+              </p>
+              <p>
+                Enim ea officia excepteur ad veniam id reprehenderit eiusmod esse mollit consequat. Esse non aute ullamco Lorem aliqua qui dolore irure eiusmod aute aliqua proident labore aliqua. Ipsum voluptate voluptate exercitation laborum deserunt nulla elit aliquip et minim ex veniam. Duis cupidatat aute sunt officia mollit dolor ad elit ad aute labore nostrud duis pariatur. In est sint voluptate consectetur velit ea non labore. Ut duis ea aliqua consequat nulla laboris fugiat aute id culpa proident. Minim eiusmod laboris enim Lorem nisi excepteur mollit voluptate enim labore reprehenderit officia mollit.
+              </p>
+              <p>
+                Cupidatat labore nisi ut sunt voluptate quis sunt qui ad Lorem esse nisi. Ex esse velit ullamco incididunt occaecat dolore veniam tempor minim adipisicing amet. Consequat in exercitation est elit anim consequat cillum sint labore cillum. Aliquip mollit laboris ad labore anim.
               </p>
             </div>
           </section>
-    </div>
+        </div>
         <footer class="mdl-mega-footer">
-
+          <div class="mdl-mega-footer--middle-section">
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Features</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Updates</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Details</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Spec</a></li>
+                <li><a href="#">Tools</a></li>
+                <li><a href="#">Resources</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Technology</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Patterns</a></li>
+                <li><a href="#">Usage</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contracts</a></li>
+              </ul>
+            </div>
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">FAQ</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Answers</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
           <div class="mdl-mega-footer--bottom-section">
             <div class="mdl-logo">
-              Mais Informações
+              More Information
             </div>
             <ul class="mdl-mega-footer--link-list">
-              <li><a href="https://github.com/lucaslrolim/Redes-2">Código do Projeto</a></li>
-              <li>Copyright © 2016</li>
+              <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
             </ul>
           </div>
         </footer>
       </main>
     </div>
+    <a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/text-only/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </body>
 </html>

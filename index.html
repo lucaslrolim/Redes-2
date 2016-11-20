@@ -188,7 +188,7 @@
                     <center>
                     <img vspace="30" src="images/laptop.png" alt="Laptop Infectado">
                     </center>
-                    <h4>Portas e os perigoes de as deixarem abertas</h4>
+                    <h4>Portas e os perigos de as deixarem abertas</h4>
                     <p align = "justify">
                     De acordo com o Wikipédia temos a seguinte definição para uma porta:
                     <blockquote align = "justify">Uma porta é uma conexão virtual/lógica de dados que pode ser usada por programas para
@@ -220,6 +220,105 @@
                    <center>
                     <img vspace="30" src="images/verredura_exemplo.gif" alt="Exemplo de Varredura">
                     </center>
+                </div>
+
+              </section>
+    </div>
+
+    <div class="mdl-layout__tab-panel" id="tecnicas">
+            <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <h4>Principais técnicas de Varredura de Portas</h4>
+                    <h5>TCP SYN</h5>
+                    <p align = "justify">
+                      Esse é um dos tipos de varredura mais utilizados devido à sua velocidade de execução,
+                      pois em condições favoráveis é capaz de escanear milhares de portas em pouco segundos.
+                      Uma das características do TCP SYN é o fato dele ser camuflado, pois durante a sua varredura
+                      ele não completa uma conexão TCP, sendo assim menos intrusivo.
+                    </p>
+                    <p align = "justify">
+                      Nesse tipo, é enviado um pacote SYN tentando abrir uma conexão. Se for recebido uma
+                      resposta SYN/ACK significa que a porta está ouvindo e caso seja recebido um RST como resposta,
+                      a porta não estará ouvindo. O diferencial é que quando é recebido um SYN/ACK indicando porta aberta,
+                      logo é enviado um RST para cancelar a conexão, assim na maioria das vezes, não é detectado nenhuma atividade.</p>
+                    </p>
+                    <h5>TCP Connect</h5>
+                    <p align = "justify">
+                      Esse tipo é utilizado quando não é possível usar o TCP SYN. A diferença entre esses dois é que, no TCP Connect,
+                      ao receber um SYN/ACK indicando porta aberta, o sinal de RST não é enviado, mas sim um ACK, estabelecendo uma
+                      conexão com a porta. O estabelecimento dessa conexão demanda mais tempo e também é facilmente percebido por qualquer
+                      programa com o propósito de detectar alguma atividade estranha nas portas.
+                    </p>
+
+                    <h5>ICMP</h5>
+                    <p align = "justify">
+                      É o scan base de vários tipos de varredores de porta. É usado antes dos outros tipos de scan para detectar
+                      quais hosts estão conectados à rede. Um ICMP echo request é enviado para o host alvo. Se e o alvo responder
+                      com um ICMP echo reply, ele está ativo.
+                    </p>
+
+                    <h5>UDP</h5>
+                    <p align = "justify">
+                      Serviços UDP são amplamente difundidos pela rede e o escaneamento das portas que registram serviços UDP
+                      costumam ser mais lentos, pois ao enviar um pacote UDP, ele espera por um certo tempo uma resposta.
+                      Quando a resposta não chega, supõe-se que a porta está aberta, caso contrário é recebido um erro com o respectivo erro.
+                    </p>
+
+                    <h5>X-MAS Tree, TCP Null e FIN</h5>
+                    <p align = "justify">
+                      Esses três tipos de varredura tem o comportamento muito parecidos. A diferença são os flags TCP dos pacotes de sondagem.
+                      No X-mas é enviado um pacote com os flags FIN, PSH e URG ativados, No FIN é marcado o flag FIN (como o próprio nome já diz),
+                      já o TCP Null não marca nenhum flag no pacote.
+                      Quando nenhuma resposta é recebida, a porta está aberta. Caso um RST ou ACK seja recebido, significa que a porta está fechada.
+                    </p>
+
+                    <h5>Idle</h5>
+
+                      <p align = "justify">
+                        Tipo de varredura altamente camuflada devido à natureza cega. Para que funcione, são necessárias três máquinas:
+                        a do invasor, a máquina zumbi e a máquina alvo.
+                      </p>
+                      <p align = "justify">
+                        A máquina zumbi é uma máquina que não está realizando absolutamente nenhuma conexão, pois será possível saber se
+                        a porta máquina alvo está aberta através do IPID na máquina zumbi. IPID é um identificador que há em todo pacote
+                        que é incrementado sequencialmente.
+                      </p>
+                      <p align = "justify">
+                        O invasor manda um SYN/ACK para o zumbi que que não espera conexão, então ele manda um RST e retorna um IPID
+                        incrementado em um. Em seguida, a máquina invasora manda um SYN para a máquina alvo que retorna um SYN/ACK para
+                        o zumbi que novamente retorna outro RST, incrementando o IPID em mais um novamente. Assim, se a máquina invasora
+                        manda SYN/ACK novamente para o zumbi, ele retornará o RST com um IPID incrementado em dois, mostrando assim que a
+                        porta testada da máquina alvo está aberta. Quando a porta está fechada, quando o alvo recebe um SYN do invasor,
+                        ela não manda um SYN/ACK para o zumbi e ele não incrementa mais o seu IPID. Assim, quando o zumbi incrementa em
+                        um o IPDI, o alvo está fechado, caso contrário está aberto.
+                      </p>
+                    </p>
+
+                    <h5>FTP Bounce</h5>
+                    <p align = "justify">
+                      Um servidor FTP tenta enviar algum arquivo por alguma porta do host invadido e a mensagem de erro recebida diz se a porta está ou não aberta.
+                    </p>
+
+                    <h5>TCP ACK</h5>
+                    <p align = "justify">
+                      Essa técnica não consegue identificar se uma porta está ou não aberta, mas sim se há um firewall presente e
+                      quais são os conjuntos de regras que compõem esse firewall e as portas filtradas por ele
+                      Um pacote ACK é enviado, caso seja recebido um RST, então não há firewall, mas nada se pode dizer
+                      sobre a disponibilidade da porta.
+                      Quando não há resposta ou quando há sinais de erro, isso significa que há um firewall bloqueando esse pacote.
+                    </p>
+
+                    <h5>IP Protocol</h5>
+                    <p align = "justify">
+                      Muito semelhante com o UDP, porém ele envia cabeçalhos de pacote IP. Quando recebe qualquer resposta ou nenhuma, a porta é marcada como aberta.
+                    </p>
+
+                    <h5>TCP Window</h5>
+                    <p align = "justify">
+                      Muito semelhante ao ACK, porém ele diferencia a porta de aberta e fechada.
+                      Ele faz isso analisando a janela TCP do pacote RST devolvido. Essas janelas possuem
+                      valores positivos quando a porta do RST está aberta e zero quando está fechada.
+                    </p>
                 </div>
 
               </section>
