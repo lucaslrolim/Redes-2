@@ -219,6 +219,103 @@
               </section>
     </div>
 
+
+        <div class="mdl-layout__tab-panel" id="nmap">
+              <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+                        <p align = "justify">
+                          NMap (Network Mapper) é uma ferramenta de código aberto utilizada para exploração de redes e análise de segurança,
+                          seja de hosts únicos ou largas redes. Com ele, é possível determinar os hosts disponíveis na rede, bem como os
+                          serviços que cada host dispõe, seus sistemas operacionais além dos tipos de firewall e filtro de pacotes em uso.
+                        </p>
+                        <p align = "justify">
+                          O NMap possui diversos métodos de varreduras que podem ser personalizadas, deixando-as fácil ou dificilmente detectáveis.
+                          Além disso, alguns desses métodos de varredura podem simular a origem da varredura, logo,
+                          falsificando o emissor do ataque, além de poder simular diversas varreduras pela rede.
+                        </p>
+                   <h4>Timing e Desempenho</h4>
+                        <p align = "justify">
+                          O NMap utiliza de paralelismo e algoritmos que aceleram a execução das varreduras, contudo, determinadas escolhas
+                          de varredura podem acarretar em uma queda de performance, que também está atrelado ao tamanho da rede.
+                        </p>
+                        <p align = "justify">
+                          Usuários experientes executam varreduras em busca apenas de informações que são de interesse, atendendo,
+                          inclusive à uma restrição de tempo. Para melhorar os tempos da varredura pode-se omitir testes não críticos,
+                          e otimizar os parâmetros de tempo, como “--host-timeout”, que define um tempo limite para tentativa de
+                          varredura em um dado host. É possível definir não só o valor, mas também a unidade (horas, minutos, segundos
+                          [padrão], milissegundos) aplicando --host-timeout 900s / 900000ms / 900 / 15m.
+                        </p>
+                        <p align = "justify">
+                          Outro parâmetro que afeta diretamente o desempenho do NMap é o --min-hostgroup <number of hosts>.
+                          O NMap tem a capacidade de analisar diversos hosts em paralelo, e faz isso com o auxílio deste comando.
+                          O IP destino é dividido em grupos, e, então, cada grupo é analisado por vez. Em geral, grupos grandes são
+                          mais eficientes. A desvantagem, é que o relatório da varredura só é exposto ao usuário após o grupo todo
+                          ser analisado; assim, caso haja 50 hosts em um grupo, apenas após os 50 serem analisados, é que é possível
+                          saber a situação de um dado host nesse meio.
+                        </p>
+                        <p align = "justify">
+                          Acompanhado de --max-hostgroup que determina o máximo de hosts para um grupo (O NMap utiliza esse
+                          parâmetro como limite superior, enquanto o mínimo é o inferior). Contudo, há uma exceção: caso não
+                          hajam hosts suficientes para o número mínimo especificado, o NMap irá utilizar valores inferiores
+                          ao limite estabelecido.
+                        </p>
+                </div>
+              </section>
+        </div>
+
+
+        <div class="mdl-layout__tab-panel" id="zmap">
+              <section class="section--center mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--12-col">
+                  <h4><i>Modus operandi</i></h4>
+                        <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Pacores são enviados, no ZMap, através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o ZMap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
+                        </p>
+                        <p align = "justify">
+                         O ZMap foi feito para realizar scans de toda Internet (IPv4), mas suporta a exclusão de endereços (<i>blacklisting</i>) das suas varreduras para melhora de performance (endereços da IANA) e outros por pedidos de administradores dos alvos. Quanto aos hosts "disponíveis" para scan, o módulo de recebimento do ZMap precisa saber se o tráfico de pacotes recebido é proveniente de respostas ao scans, ou faz parte de algum tráfico de fundo da fonte. Para que isso ocorra, campos dos pacotes enviados são preenchidos com dados que sejam replicados nos pacotes de resposta. Para cada host varrido, ZMap computa o MAC (Media Access Control) do host de destino nos campos de Número de Sequência e porta de destino (para TCP) e Número de Sequência e identificador ICMP (para ICMP).
+                        </p>
+                   <h4>Limitações</h4>
+                        <p align = "justify">
+                          Apesar de conseguir fazer varreduras rápidas no espaço IPv4, ZMap ainda não é rápido o bastante para fazer
+                          varreduras no espaço de endereços IPv6. Além disso, o ZMap também está limitado pela velocidade da internet
+                          do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos,
+                          enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
+                        </p>
+                </div>
+              </section>
+
+               <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div  class="mdl-card mdl-cell mdl-cell--12-col">
+                  <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                    <h4 class="mdl-cell mdl-cell--12-col">Usos experimentados</h4>
+                    <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                      <h4>Medição de adesão de protocolo</h4>
+                         <p align = "justify">
+                        Uma mesma porta deve ser varrida várias vezes ao longo de algum período de tempo, possibilitando, dessa forma, que seja identificado algum acréscimo no número de portas abertas. Caso isso aconteça, pode-se dizer que houve um aumento no protocolo usado naquela porta. Como por exemplo, pode-se configurar o ZMap para fazer varreduras constantes na porta 443, identificando possíveis variações no uso do protocolo HTTPS.
+                        </p>
+                    </div>
+                    <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                      <h4><i>Scanner</i> global de vulnerabilidades de alta velocidade</h4>
+                       <p align = "justify">
+                       Uma vulnerabilidade pode ser detectada em hosts no mundo inteiro num espaço curto de tempo. Possibilitando que usuários mal intencionados façam ataques com alta possibilidade de sucesso em portas executando aplicações vulneráveis. Exemplos de vulnerabilidade são o SQL Server operando na porta 1434 (já foi sujeito a buff overflow, possibilitando a execução de código malicioso) e aparelhos UPnP.
+                      </p>
+                    </div>
+                    <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                      <h4>Monitoramento da disponibilidade de serviço</h4>
+                       <p align = "justify">
+                       Estudos predecessores ao ZMap já previam que o uso do scan ICMP echo request poderiam detectar interrupções em massa da Internet. Durante o Furacão Sandy, que atingiu a costa oeste dos EUA em 2013, o ZMap foi usado para varrer a porta 443 (é usada para a comunicação com websites em geral) de todo o espaço do IPv4 a cada duas horas [1]. O observado foi que, nas localidades afetadas, houve uma queda de 30% na quantidade de portas abertas.
+                      </p>
+                    </div>
+                    <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                      <h4>Comunicação anônima</h4>
+                       <p align = "justify">
+                       Por causa da característica de enviar incontáveis pacotes para toda a rede IPv4, torna-se impossível de se rastrear qual era o real destinatário de um envio de mensagem objetivando o anonimato.
+                      </p>
+                    </div>
+              </section>
+
+        </div>
+
+
     <div class="mdl-layout__tab-panel" id="tecnicas">
             <section class="section--center mdl-grid mdl-grid--no-spacing">
                 <div class="mdl-cell mdl-cell--12-col">
@@ -348,51 +445,6 @@
           </section>
     </div>
 
-    <div class="mdl-layout__tab-panel" id="zmap">
-          <section class="section--center mdl-grid mdl-grid--no-spacing">
-            <div class="mdl-cell mdl-cell--12-col">
-              <h4><i>Modus operandi</i></h4>
-                    <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Pacores são enviados, no ZMap, através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o ZMap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
-                    </p>
-                    <p align = "justify">
-                     O ZMap foi feito para realizar scans de toda Internet (IPv4), mas suporta a exclusão de endereços (<i>blacklisting</i>) das suas varreduras para melhora de performance (endereços da IANA) e outros por pedidos de administradores dos alvos. Quanto aos hosts "disponíveis" para scan, o módulo de recebimento do ZMap precisa saber se o tráfico de pacotes recebido é proveniente de respostas ao scans, ou faz parte de algum tráfico de fundo da fonte. Para que isso ocorra, campos dos pacotes enviados são preenchidos com dados que sejam replicados nos pacotes de resposta. Para cada host varrido, ZMap computa o MAC (Media Access Control) do host de destino nos campos de Número de Sequência e porta de destino (para TCP) e Número de Sequência e identificador ICMP (para ICMP).
-                    </p>
-               <h4>Limitações</h4>
-                    <p align = "justify">Apesar de conseguir fazer varreduras rápidas no espaço IPv4, ZMap ainda não é rápido o bastante para fazer varreduras no espaço de endereços IPv6. Além disso, o ZMap também está limitado pela velocidade da internet do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos, enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
-            </div>
-          </section>
-               
-           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div  class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h4 class="mdl-cell mdl-cell--12-col">Usos experimentados</h4>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Medição de adesão de protocolo</h4>
-                     <p align = "justify">
-                    Uma mesma porta deve ser varrida várias vezes ao longo de algum período de tempo, possibilitando, dessa forma, que seja identificado algum acréscimo no número de portas abertas. Caso isso aconteça, pode-se dizer que houve um aumento no protocolo usado naquela porta. Como por exemplo, pode-se configurar o ZMap para fazer varreduras constantes na porta 443, identificando possíveis variações no uso do protocolo HTTPS.
-                    </p>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4><i>Scanner</i> global de vulnerabilidades de alta velocidade</h4>
-                   <p align = "justify">
-                   Uma vulnerabilidade pode ser detectada em hosts no mundo inteiro num espaço curto de tempo. Possibilitando que usuários mal intencionados façam ataques com alta possibilidade de sucesso em portas executando aplicações vulneráveis. Exemplos de vulnerabilidade são o SQL Server operando na porta 1434 (já foi sujeito a buff overflow, possibilitando a execução de código malicioso) e aparelhos UPnP.
-                  </p>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Monitoramento da disponibilidade de serviço</h4>
-                   <p align = "justify">
-                   Estudos predecessores ao ZMap já previam que o uso do scan ICMP echo request poderiam detectar interrupções em massa da Internet. Durante o Furacão Sandy, que atingiu a costa oeste dos EUA em 2013, o ZMap foi usado para varrer a porta 443 (é usada para a comunicação com websites em geral) de todo o espaço do IPv4 a cada duas horas [1]. O observado foi que, nas localidades afetadas, houve uma queda de 30% na quantidade de portas abertas.
-                  </p>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h4>Comunicação anônima</h4>
-                   <p align = "justify">
-                   Por causa da característica de enviar incontáveis pacotes para toda a rede IPv4, torna-se impossível de se rastrear qual era o real destinatário de um envio de mensagem objetivando o anonimato.
-                  </p>
-                </div>
-          </section>
-
-    </div>
 
     <div class="mdl-layout__tab-panel" id="conclusao">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
@@ -408,7 +460,7 @@
                     Por conta dessas ameaças, o usuário precisa entender que um host está em constante risco de ataque e medidas de segurança devem ser tomadas. O firewall é uma das  ferramentas de segurança indicadas para esse tipo de problema, pois previne conexões indesejadas às portas abertas, criando condições para que pacotes sejam entregues ao host protegido.
                     </p>
             </div>
-          </section>    
+          </section>
     </div>
 
         <div class="mdl-layout__tab-panel" id="comparacoes">
@@ -423,7 +475,7 @@
                <h4>Retransmissão</h4>
                     <p align = "justify">Enquanto NMap transmite, por padrão, dois pacotes por porta e faz adaptações de retransmissão de acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de pacotes (um). Apesar de parecer que esse scan acaba ficando defasado no quesito confiabilidade, foi estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos são varridos.
             </div>
-          </section>  
+          </section>
     </div>
 
         <footer class="mdl-mega-footer">
