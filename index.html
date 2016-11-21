@@ -360,7 +360,7 @@
                <h4>Limitações</h4>
                     <p align = "justify">Apesar de conseguir fazer varreduras rápidas no espaço IPv4, ZMap ainda não é rápido o bastante para fazer varreduras no espaço de endereços IPv6. Além disso, o ZMap também está limitado pela velocidade da internet do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos, enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
             </div>
-          </section>  
+          </section>
                
            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div  class="mdl-card mdl-cell mdl-cell--12-col">
@@ -392,6 +392,23 @@
                 </div>
           </section>
 
+    </div>
+
+    <div class="mdl-layout__tab-panel" id="conclusao">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4><i>Conclusão</i></h4>
+                    <p align = "justify">A varredura de portas, além de possibilitar a descoberta de quais serviços estão sendo executados nos hosts de uma determinada rede, o que é interessante para um administrador de redes, por exemplo, também detecta portas vulneráveis que podem ser usadas para ataques externos. Assim, a varredura de portas é uma ferramenta poderosa tanto para usuários com boas intenções, como para usuários maliciosos.
+                    </p>
+                    <p align = "justify">
+                     Existem vários tipos de port scanners. Dentre eles, dois se destacam; ZMap e NMap. Por possuírem características díspares, a análise deles, em conjunto, é muito conclusiva. Apesar de funcionarem com o mesmo objetivo (varrer portas), cada varredor alcança um resultado muito diferente. O ZMap visa, através da sua varredura única de porta e global do IPv4, a reunir informações sobre toda rede. Por outro lado, o NMap age de maneira mais individual, dando mais atenção a cada host e fazendo uma varredura total, ou parcial, de suas portas.
+                    </p>
+                    <p align = "justify">Como dito anteriormente, mesmo sendo scanners com objetivos diferentes, ZMap e NMap alcançam seus resultados da mesma forma: através da transmissão de pacotes através da rede. O ZMap, em sua configuração inicial, realiza varreduras TCP SYN, UDP e ICMP, enquanto o NMap possui uma gama bem maior de scans, realizando esses e outros tipos, pois deve se preocupar em varrer várias portas num mesmo alvo sem ser detectado.
+                    <p align = "justify">
+                    Por conta dessas ameaças, o usuário precisa entender que um host está em constante risco de ataque e medidas de segurança devem ser tomadas. O firewall é uma das  ferramentas de segurança indicadas para esse tipo de problema, pois previne conexões indesejadas às portas abertas, criando condições para que pacotes sejam entregues ao host protegido.
+                    </p>
+            </div>
+          </section>    
     </div>
 
         <div class="mdl-layout__tab-panel" id="comparacoes">
