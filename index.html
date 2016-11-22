@@ -23,20 +23,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Material Design Lite</title>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
     <link rel="shortcut icon" href="images/favicon.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
@@ -108,7 +94,7 @@
                     Ao longo do desenvolvimento deste trabalho, portanto, vamos analisar não só o conceito da varredura de portas, mas também as implicações e os ferramentais mais importantes para o bom entendimento deste tópico.
                     </p>
                     <center>
-                    <img vspace="50" src="images/ilustracao-conceitual-ps.gif" alt="conceito part scanning">
+                    <img vspace="50" src="images/ilustracao-conceitual-ps.gif" alt="conceito port scanning">
                     </center>
                 </div>
 
@@ -268,7 +254,7 @@
               <section class="section--center mdl-grid mdl-grid--no-spacing">
                 <div class="mdl-cell mdl-cell--12-col">
                   <h4><i>Modus operandi</i></h4>
-                        <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Pacores são enviados, no ZMap, através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o ZMap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
+                        <p align = "justify">O ZMap é o varredor de porta usado para varreduras massivas em todo o espaço IPv4 da rede, almejando a uma porta comum entre todos os hosts varridos e realizando seu objetivo em altíssima velocidade. Esse varredor envia tantos pacotes quanto a NIC e a CPU do destino aguentam. Pacotes são enviados, no ZMap, através de “raw socket” (socket que permite o envio e recebimento de pacotes sem o uso específico de algum protocolo de transporte) diretamente na camada Ethernet. Desta maneira, o ZMap impede que o Sistema Operacional realize tarefas de rotina sobre os pacotes. Como tecnicamente não é estabelecida uma conexão TCP, assim que o host fonte receber TCP SYN-ACK, a resposta de TCP RST será enviada. Na sua forma básica, esse varredor suporta TPC SYN, ICMP e UDP scans.
                         </p>
                         <p align = "justify">
                          O ZMap foi feito para realizar scans de toda Internet (IPv4), mas suporta a exclusão de endereços (<i>blacklisting</i>) das suas varreduras para melhora de performance (endereços da IANA) e outros por pedidos de administradores dos alvos. Quanto aos hosts "disponíveis" para scan, o módulo de recebimento do ZMap precisa saber se o tráfico de pacotes recebido é proveniente de respostas ao scans, ou faz parte de algum tráfico de fundo da fonte. Para que isso ocorra, campos dos pacotes enviados são preenchidos com dados que sejam replicados nos pacotes de resposta. Para cada host varrido, ZMap computa o MAC (Media Access Control) do host de destino nos campos de Número de Sequência e porta de destino (para TCP) e Número de Sequência e identificador ICMP (para ICMP).
@@ -321,6 +307,12 @@
                 <div class="mdl-cell mdl-cell--12-col">
                   <h4>Principais técnicas de Varredura de Portas</h4>
                     <h5>TCP SYN</h5>
+                    <center>
+                    <figure>
+                      <img src="images/tcp-syn.jpg" alt="TCP SYN" width="304" height="228">
+                      <figcaption>Figura 1 - Esquema do TCP SYN</figcaption>
+                    </figure>
+                    </center>
                     <p align = "justify">
                       Esse é um dos tipos de varredura mais utilizados devido à sua velocidade de execução,
                       pois em condições favoráveis é capaz de escanear milhares de portas em pouco segundos.
@@ -332,13 +324,6 @@
                       resposta SYN/ACK significa que a porta está ouvindo e caso seja recebido um RST como resposta,
                       a porta não estará ouvindo. O diferencial é que quando é recebido um SYN/ACK indicando porta aberta,
                       logo é enviado um RST para cancelar a conexão, assim na maioria das vezes, não é detectado nenhuma atividade.</p>
-                    </p>
-                    <h5>TCP Connect</h5>
-                    <p align = "justify">
-                      Esse tipo é utilizado quando não é possível usar o TCP SYN. A diferença entre esses dois é que, no TCP Connect,
-                      ao receber um SYN/ACK indicando porta aberta, o sinal de RST não é enviado, mas sim um ACK, estabelecendo uma
-                      conexão com a porta. O estabelecimento dessa conexão demanda mais tempo e também é facilmente percebido por qualquer
-                      programa com o propósito de detectar alguma atividade estranha nas portas.
                     </p>
 
                     <h5>ICMP</h5>
@@ -353,6 +338,20 @@
                       Serviços UDP são amplamente difundidos pela rede e o escaneamento das portas que registram serviços UDP
                       costumam ser mais lentos, pois ao enviar um pacote UDP, ele espera por um certo tempo uma resposta.
                       Quando a resposta não chega, supõe-se que a porta está aberta, caso contrário é recebido um erro com o respectivo erro.
+                    </p>
+
+                    <h5>TCP Connect</h5>
+                     <center>
+                    <figure>
+                      <img src="images/tcp-connect.jpg" alt="TCP Connect" width="504" height="228">
+                      <figcaption>Figura 2 - Esquema do TCP Connect</figcaption>
+                    </figure>
+                    </center>
+                    <p align = "justify">
+                      Esse tipo é utilizado quando não é possível usar o TCP SYN. A diferença entre esses dois é que, no TCP Connect,
+                      ao receber um SYN/ACK indicando porta aberta, o sinal de RST não é enviado, mas sim um ACK, estabelecendo uma
+                      conexão com a porta. O estabelecimento dessa conexão demanda mais tempo e também é facilmente percebido por qualquer
+                      programa com o propósito de detectar alguma atividade estranha nas portas.
                     </p>
 
                     <h5>X-MAS Tree, TCP Null e FIN</h5>
@@ -386,6 +385,12 @@
                     </p>
 
                     <h5>FTP Bounce</h5>
+                    <center>
+                    <figure>
+                      <img src="images/ftp-bounce.jpg" alt="FTP Bounce" width="440" height="400">
+                      <figcaption>Figura 3 - Etapas do FTP Bounce</figcaption>
+                    </figure>
+                    </center>
                     <p align = "justify">
                       Um servidor FTP tenta enviar algum arquivo por alguma porta do host invadido e a mensagem de erro recebida diz se a porta está ou não aberta.
                     </p>
@@ -440,6 +445,9 @@
               <p id="#biblioImagens">
               <li>[1] Ícone Firewall disponibilizado por Madebyoliver</li>
               <li>[2] Ícone Connect disponibilizado por Freepik</li>
+              <li>[3] Figura 1. Defenses Against TCP SYN Flooding Attacks - The Internet Protocol Journal - Volume 9, Number 4</li>
+              <li>[4] Figura 2. INFOSEC INSTITUTE Port Scanning using Scapy</li>
+              <li>[5] Figura 3. Computer Security and PGP BLOG - What is an FTP Bounce Attack ?</li>
               </p>
             </div>
           </section>
