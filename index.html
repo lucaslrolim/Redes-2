@@ -500,10 +500,10 @@
     <div class="mdl-layout__tab-panel" id="perguntas">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4><b>1.</b> Explique os motivos que justifiquem dizer que o ZMap é <i>stateless</i>.</h4>
-                    <p align = "justify">
-               <h4><b>2.</b> Explique como é possível que ocorra comunicação anônima através do ZMap.</h4>
-                    <p align = "justify">
+              <h4><b>1.</b>Explique as três características que garantem aque o ZMap é ideal para varreduras num espaço muito largo de endereços.</h4>
+                    <p align = "justify">ZMap envia pacotes tão rapidamente quanto a placa de rede do remetente aguenta, pulando protocolos de transporte e enviando <i>frames</i> diretamente na camada Ethernet através de <i>raw sockets</i>. Não há armazenamento de endereços e, por consequência, nem controle de timeouts e retransmissões, ou seja, pode ser considerado sem estado. Somente um pacote é enviado para cada host alvo, sem retransmissões.
+               <h4><b>2.</b>Explique alguns modos de utilização do ZMap.</h4>
+                    <p align = "justify">Detecção global de vulnerabilidades: é possível descobrir o volume de hosts que executam aplicações com falhas. Comunicação anônima: através de alterações no pacote enviado durante a varredura, é possível que haja comunicação na qual não é possível saber qual host é o verdadeiro alvo. Monitoramento da disponibilidade do serviço: através do ICMP <i>sweep</i>, pode ser checada a disponibilidade de acesso a rede, e, por conta da alta velocidade, permitir que medidas imediatas sejam tomadas. Medição da adoção de protocolos: por haver portas associadas a certos protocolos, é possível medir sua adesão ao longo do tempo. Uma vez que o ZMap encontra essa porta aberta, é certo que tal protocolo esteja sendo utilizado.
             </div>
           </section>
     </div>
