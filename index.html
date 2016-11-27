@@ -54,10 +54,10 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="#introducao" class="mdl-layout__tab is-active">Introdução</a>
  		  <a href="#motivacao" class="mdl-layout__tab">Motivação</a>
+ 		  <a href="#tecnicas" class="mdl-layout__tab">Principais Técnicas</a>
           <a href="#nmap" class="mdl-layout__tab">NMap</a>
           <a href="#zmap" class="mdl-layout__tab">ZMap</a>
           <a href="#comparacoes" class="mdl-layout__tab">Comparações</a>
-          <a href="#tecnicas" class="mdl-layout__tab">Principais Técnicas</a>
           <a href="#conclusao" class="mdl-layout__tab">Conclusão</a>
           <a href="#perguntas" class="mdl-layout__tab">Perguntas</a>
           <a href="#bibliografia" class="mdl-layout__tab">Bibliografia</a>
@@ -501,6 +501,8 @@
               <li>[4] Figura 2. INFOSEC INSTITUTE Port Scanning using Scapy</li>
               <li>[4] Figura 3. Nmap: a “Hacker Tool” for Security Professionals</li>
               <li>[5] Figura 4. Computer Security and PGP BLOG - What is an FTP Bounce Attack ?</li>
+              <li>[7] Figura 6. ZMap: Fast Internet-wide Scanning and Its Security Applicatons</li>
+              <li>[8] Figura 7. ZMap: Fast Internet-wide Scanning and Its Security Applicatons</li>
               </p>
             </div>
           </section>
@@ -551,7 +553,11 @@
                       feito para varrer somente uma porta em toda a rede da Internet. A título de comparação, ao se
                       varrer a porta 443 em um milhão de endereços IP usando o TCP SYN, é estimada uma duração de
                       1h10min para o ZMap e 63 dias para o NMap [1].
-                    </p>
+                      <center>
+                      <img vspace="30" src="images/zmap-talksec1.jpg" alt="comparacao1">
+                      <figcaption>Figura 6 - Comparação em número com NMap</figcaption>
+                      </center>
+                      </p>
                <h4>Sondagem otimizada</h4>
                     <p align = "justify">
                       Enquanto o NMap adapta sua taxa de transmissão de pacotes para evitar saturar as redes da fonte
@@ -574,6 +580,11 @@
                       acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de
                       pacotes (um). Apesar de parecer que esse scan acaba ficando defasado no quesito confiabilidade, foi
                       estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos são varridos.
+                    </p>
+                    <center>
+                    <img vspace="30" src="images/zmap-talksec2.jpg" alt="comparacao2">
+                    <figcaption>Figura 7 - Comparação de características</figcaption>
+                    </center>
                     </p>
             </div>
           </section>
