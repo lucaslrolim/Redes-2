@@ -246,8 +246,46 @@
                           hajam hosts suficientes para o número mínimo especificado, o NMap irá utilizar valores inferiores
                           ao limite estabelecido.
                         </p>
+                        <p align = "justify">
+                          Os comandos --min-parallelism <numprobes>; --max-parallelism <numprobes> controlam o número total
+                          de análises que podem estar pendentes por um grupo de hosts. O NMap calcula automaticamente o
+                          número ideal, não necessitando trabalhar com esses comandos, muito embora, para usuários avançados
+                          e para determinados testes possa ser interessante. É comum utilizar esse comando para agilizar a
+                          análise da rede, porém, é sempre um risco pois pode afetar a precisão dos resultados.
+                        </p>
+                    <h4>Interação em Tempo de Execução</h4>
+                        <p align = "justify">
+                          Enquanto o NMap está sendo executado, as teclas pressionadas são capturadas e interpretadas,
+                          permitindo assim a interação do usuário com o software sem abortar a operação em andamento
+                          naquele instante.
+                        </p>
+                        <p align = "justify">
+                          Determinadas teclas alteram opções do scan, enquanto outras exibem informações na tela.
+                          Para o segundo caso, existe uma convenção, onde letras minúsculas aumentam a taxa de
+                          exibição e letras maiúsculas reduzem a taxa de exibição de novas informações.
+                        </p>
                 </div>
               </section>
+              <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+               <div  class="mdl-card mdl-cell mdl-cell--12-col">
+                 <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                   <h4 class="mdl-cell mdl-cell--12-col">Outros Usos do NMap</h4>
+                   <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                        <p align = "justify">
+                          O NMap consegue, de forma bastante simples (do ponto de vista do usuário final) detectar
+                          informações acerca de um dado dispositivo. Com o comando -O você já obtém informações do
+                          sistema operacional; adicionando também o comando -v você consegue novas informações sobre
+                          o sistema.
+                        </p>
+                        <p align = "justify">
+                          Diante dos dados coletados, algumas das informações fornecidas são: tipo de dispositivo,
+                          distância da rede, predição de sequência TCP e geração de sequência IP ID.
+                        </p>
+                        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                         <img src="images/nmap.png" alt="NMap">
+                        </div>
+                   </div>
+             </section>
         </div>
 
 
