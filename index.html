@@ -281,9 +281,14 @@
                           Diante dos dados coletados, algumas das informações fornecidas são: tipo de dispositivo,
                           distância da rede, predição de sequência TCP e geração de sequência IP ID.
                         </p>
-                        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                         <img src="images/nmap.png" alt="NMap">
-                        </div>
+                        
+                         <center>
+                         <figure>
+                         	<img src="images/nmap.png" alt="NMap">
+                         	<p>Figura 5 - Terminal com relatório de uma varredura com NMap</p>
+                         </figure>
+                         </center>
+                        
                    </div>
              </section>
         </div>
@@ -479,9 +484,11 @@
             <div class="mdl-cell mdl-cell--12-col">
               <h4>Bibliografia</h4>
               <ul class="toc">
+
                 <a href="#biblio1">ZMap: Fast Internet-wide Scanning and Its Security Applicatons</a>
                 <a href="#biblio2">Software-Defined Networking: A Comprehensive Survey</a>
                 <a href="#biblio3">Computer Networking: A Top-Down Approach</a>
+                <a href="#biblio4">The Official Nmap Project Guide to Network Discovery and Security Scanning</a>
                 <a href="#biblioImagens">Imagens</a>
               </ul>
 
@@ -494,6 +501,9 @@
               <p id="#biblio3">
               [3] J. Kurose, K. Ross. Computer Networking: A Top-Down Approach.
               </p>
+              <p id="biblio4">
+              	[4] L. Gordon; The Official Nmap Project Guide to Network Discovery and Security Scanning
+              </p>
               <p id="#biblioImagens">
               <li>[1] Ícone Firewall disponibilizado por Madebyoliver</li>
               <li>[2] Ícone Connect disponibilizado por Freepik</li>
@@ -501,6 +511,7 @@
               <li>[4] Figura 2. INFOSEC INSTITUTE Port Scanning using Scapy</li>
               <li>[4] Figura 3. Nmap: a “Hacker Tool” for Security Professionals</li>
               <li>[5] Figura 4. Computer Security and PGP BLOG - What is an FTP Bounce Attack ?</li>
+              <li>[6] Figura 5. NMap Manual (<a href="http://www.nmap.org/" target="_blank">NMap.org</a>)</li>
               <li>[7] Figura 6. ZMap: Fast Internet-wide Scanning and Its Security Applicatons</li>
               <li>[8] Figura 7. ZMap: Fast Internet-wide Scanning and Its Security Applicatons</li>
               </p>
@@ -623,6 +634,10 @@
                       SYN/ACK do servidor, o TCP SYN envia um RST para que a conexão não seja completada, já o TCP
                       Connect manda um ACK que estabelece a conexão. Assim, o TCP SYN acaba sendo bem mais rápido
                       do que o TCP Connect, já que não precisa de uma conexão completa.
+                    </p>
+               <h4><b>5.</b>Visto que é possível interagir com o NMap ao longo de uma varredura, responda: é possível alterar configurações da varredura ao longo de sua execução?</h4>
+                    <p align = "justify">
+                      Nem todas as configurações podem ser alteradas em tempo de execução, pois, caso contrário algumas informações poderiam ser perdidas. Contudo, é possível alterar o nível de verbosidade (velocidade com que as informações são exibidas no terminal durante uma varredura); ligar ou desligar o rastreamento de pacotes (<i>packet tracing</i>); exibir informações de ajuda; e, também alterar o nível do <i>debug</i>, a fim de extrair mais informações da varredura.
                     </p>
             </div>
           </section>
