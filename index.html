@@ -21,7 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>Varredura de Porta</title>
 
     <link rel="shortcut icon" href="images/favicon.png">
 
@@ -323,7 +323,9 @@
                     <p align = "justify">
                       Nesse tipo, é enviado um pacote SYN tentando abrir uma conexão. Se for recebido uma
                       resposta SYN/ACK significa que a porta está ouvindo e caso seja recebido um RST como resposta,
-                      a porta não estará ouvindo. O diferencial é que quando é recebido.</p>
+                      a porta não estará ouvindo. O diferencial é que quando é recebido um SYN/ACK indicando porta
+                      aberta, logo é enviado um RST para cancelar a conexão, assim na maioria das vezes, não é
+                      detectado nenhuma conexão.
                     </p>
 
                     <h5>ICMP</h5>
@@ -409,10 +411,12 @@
                     <h5>TCP ACK</h5>
                     <p align = "justify">
                       Essa técnica não consegue identificar se uma porta está ou não aberta, mas sim se há um firewall presente e
-                      quais são os conjuntos de regras que compõem esse firewall e as portas filtradas por ele
+                      quais são os conjuntos de regras que compõem esse firewall e as portas filtradas por ele.
+                    </p>
+                    <p align = "justify">
                       Um pacote ACK é enviado, caso seja recebido um RST, então não há firewall, mas nada se pode dizer
-                      sobre a disponibilidade da porta.
-                      Quando não há resposta ou quando há sinais de erro, isso significa que há um firewall bloqueando esse pacote.
+                      sobre a disponibilidade da porta. Quando não há resposta ou quando há sinais de erro, isso significa
+                      que há um firewall bloqueando esse pacote.
                     </p>
 
                     <h5>IP Protocol</h5>
@@ -469,14 +473,31 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
               <h4>Conclusão</h4>
-                    <p align = "justify">A varredura de portas, além de possibilitar a descoberta de quais serviços estão sendo executados nos hosts de uma determinada rede, o que é interessante para um administrador de redes, por exemplo, também detecta portas vulneráveis que podem ser usadas para ataques externos. Assim, a varredura de portas é uma ferramenta poderosa tanto para usuários com boas intenções, como para usuários maliciosos.
+                    <p align = "justify">
+                      A varredura de portas, além de possibilitar a descoberta de quais serviços estão sendo executados
+                      nos hosts de uma determinada rede, o que é interessante para um administrador de redes, por exemplo,
+                      também detecta portas vulneráveis que podem ser usadas para ataques externos. Assim, a varredura de
+                      portas é uma ferramenta poderosa tanto para usuários com boas intenções, como para usuários maliciosos.
                     </p>
                     <p align = "justify">
-                     Existem vários tipos de port scanners. Dentre eles, dois se destacam; ZMap e NMap. Por possuírem características díspares, a análise deles, em conjunto, é muito conclusiva. Apesar de funcionarem com o mesmo objetivo (varrer portas), cada varredor alcança um resultado muito diferente. O ZMap visa, através da sua varredura única de porta e global do IPv4, a reunir informações sobre toda rede. Por outro lado, o NMap age de maneira mais individual, dando mais atenção a cada host e fazendo uma varredura total, ou parcial, de suas portas.
+                     Existem vários tipos de port scanners. Dentre eles, dois se destacam; ZMap e NMap. Por possuírem
+                     características díspares, a análise deles, em conjunto, é muito conclusiva. Apesar de funcionarem
+                     com o mesmo objetivo (varrer portas), cada varredor alcança um resultado muito diferente. O ZMap visa,
+                     através da sua varredura única de porta e global do IPv4, a reunir informações sobre toda rede. Por
+                     outro lado, o NMap age de maneira mais individual, dando mais atenção a cada host e fazendo uma varredura
+                     total, ou parcial, de suas portas.
                     </p>
-                    <p align = "justify">Como dito anteriormente, mesmo sendo scanners com objetivos diferentes, ZMap e NMap alcançam seus resultados da mesma forma: através da transmissão de pacotes através da rede. O ZMap, em sua configuração inicial, realiza varreduras TCP SYN, UDP e ICMP, enquanto o NMap possui uma gama bem maior de scans, realizando esses e outros tipos, pois deve se preocupar em varrer várias portas num mesmo alvo sem ser detectado.
                     <p align = "justify">
-                    Por conta dessas ameaças, o usuário precisa entender que um host está em constante risco de ataque e medidas de segurança devem ser tomadas. O firewall é uma das  ferramentas de segurança indicadas para esse tipo de problema, pois previne conexões indesejadas às portas abertas, criando condições para que pacotes sejam entregues ao host protegido.
+                      Como dito anteriormente, mesmo sendo scanners com objetivos diferentes, ZMap e NMap alcançam seus
+                      resultados da mesma forma: através da transmissão de pacotes através da rede. O ZMap, em sua
+                      configuração inicial, realiza varreduras TCP SYN, UDP e ICMP, enquanto o NMap possui uma gama bem
+                      maior de scans, realizando esses e outros tipos, pois deve se preocupar em varrer várias portas num
+                      mesmo alvo sem ser detectado.
+                    <p align = "justify">
+                      Por conta dessas ameaças, o usuário precisa entender que um host está em constante risco de ataque
+                      e medidas de segurança devem ser tomadas. O firewall é uma das  ferramentas de segurança indicadas
+                      para esse tipo de problema, pois previne conexões indesejadas às portas abertas, criando condições
+                      para que pacotes sejam entregues ao host protegido.
                     </p>
             </div>
           </section>
@@ -486,13 +507,36 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
               <h4>NMap <i>vs</i> ZMap</h4>
-                    <p align = "justify">NMap e ZMap foram desenvolvidos para propósitos bem diferentes. Enquanto o NMap é otimizado para varrer um número grande de portas em um host ou num número reduzido de hosts, o ZMap é feito para varrer somente uma porta em toda a rede da Internet. A título de comparação, ao se varrer a porta 443 em um milhão de endereços IP usando o TCP SYN, é estimada uma duração de 1h10min para o ZMap e 63 dias para o NMap [1].
+                    <p align = "justify">
+                      NMap e ZMap foram desenvolvidos para propósitos bem diferentes. Enquanto o NMap é otimizado
+                      para varrer um número grande de portas em um host ou num número reduzido de hosts, o ZMap é
+                      feito para varrer somente uma porta em toda a rede da Internet. A título de comparação, ao se
+                      varrer a porta 443 em um milhão de endereços IP usando o TCP SYN, é estimada uma duração de
+                      1h10min para o ZMap e 63 dias para o NMap [1].
+                    </p>
                <h4>Sondagem otimizada</h4>
-                    <p align = "justify">Enquanto o NMap adapta sua taxa de transmissão de pacotes para evitar saturar as redes da fonte e do destino, ZMap assume que a rede do alvo consegue sustentar sua taxa de envio e que, por conta da aleatoriedade nas escolhas dos alvos, não haverá perigo de sobrecarregar um caminho em comum. Na fonte, o ZMap manda tantos pacotes quanto a Placa de Rede do host permite, “pulando” o protocolo TCP/IP e gerando Ethernet frames diretamente.
+                    <p align = "justify">
+                      Enquanto o NMap adapta sua taxa de transmissão de pacotes para evitar saturar as redes da fonte
+                      e do destino, ZMap assume que a rede do alvo consegue sustentar sua taxa de envio e que, por conta
+                      da aleatoriedade nas escolhas dos alvos, não haverá perigo de sobrecarregar um caminho em comum.
+                      Na fonte, o ZMap manda tantos pacotes quanto a Placa de Rede do host permite, “pulando” o protocolo
+                      TCP/IP e gerando Ethernet frames diretamente.
+                    </p>
                <h4>Conexão sem estado</h4>
-                    <p align = "justify">Enquanto NMap mantém o estado de cada conexão para ter controle de hosts varridos, retransmissões e timeouts, ZMap não registra informações dos endereços varridos, ou que precisam ser varridos. Para evitar repetições de endereços e manter a aleatoriedade, esse scan usa um método chamado “permutação aleatória gerada por um grupo de multiplicação cíclica” [1]. Ao invés de fazer controle dos timeouts, ZMap aceita respostas aos pacotes enviados por toda a duração do scan.
+                    <p align = "justify">
+                      Enquanto NMap mantém o estado de cada conexão para ter controle de hosts varridos, retransmissões
+                      e timeouts, ZMap não registra informações dos endereços varridos, ou que precisam ser varridos. Para
+                      evitar repetições de endereços e manter a aleatoriedade, esse scan usa um método chamado “permutação
+                      aleatória gerada por um grupo de multiplicação cíclica” [1]. Ao invés de fazer controle dos timeouts,
+                      ZMap aceita respostas aos pacotes enviados por toda a duração do scan.
+                    </p>
                <h4>Retransmissão</h4>
-                    <p align = "justify">Enquanto NMap transmite, por padrão, dois pacotes por porta e faz adaptações de retransmissão de acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de pacotes (um). Apesar de parecer que esse scan acaba ficando defasado no quesito confiabilidade, foi estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos são varridos.
+                    <p align = "justify">
+                      Enquanto NMap transmite, por padrão, dois pacotes por porta e faz adaptações de retransmissão de
+                      acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de
+                      pacotes (um). Apesar de parecer que esse scan acaba ficando defasado no quesito confiabilidade, foi
+                      estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos são varridos.
+                    </p>
             </div>
           </section>
     </div>
@@ -500,10 +544,37 @@
     <div class="mdl-layout__tab-panel" id="perguntas">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4><b>1.</b>Explique as três características que garantem que o ZMap é ideal para varreduras num espaço muito largo de endereços.</h4>
-                    <p align = "justify">ZMap envia pacotes tão rapidamente quanto a placa de rede do remetente aguenta pulando protocolos de transporte e enviando <i>frames</i> diretamente na camada Ethernet através de <i>raw sockets</i>. Não há armazenamento de endereços e, por consequência, nem controle de timeouts e retransmissões, ou seja, pode ser considerado sem estado. Somente um pacote é enviado para cada host alvo, sem retransmissões.
-               <h4><b>2.</b>Explique alguns modos de utilização do ZMap.</h4>
-                    <p align = "justify">Detecção global de vulnerabilidades: é possível descobrir o volume de hosts que executam aplicações com falhas. Comunicação anônima: através de alterações no pacote enviado durante a varredura, é possível que haja comunicação na qual não é possível saber qual host é o verdadeiro alvo. Monitoramento da disponibilidade do serviço: através do ICMP <i>sweep</i>, pode ser checada a disponibilidade de acesso a rede, e, por conta da alta velocidade, permitir que medidas imediatas sejam tomadas. Medição da adoção de protocolos: por haver portas associadas a certos protocolos, é possível medir sua adesão ao longo do tempo. Uma vez que o ZMap encontra essa porta aberta, é certo que tal protocolo esteja sendo utilizado.
+              <h4><b>1.</b>Explique em poucas palavras o que é Varredura de Portas e como funciona.</h4>
+                    <p align = "justify">Varredura de portas é uma técnica utilizada para testar a vulnerabilidade de redes
+                                         ou de sistemas, verificando se as portas conectadas estão abertas ou fechadas. Durante
+                                         a varredura são enviadas mensagens a determinadas portas, e é possível fazer uma
+                                         análise da resposta dessas mensagens, assim é possível determinar se a porta está
+                                         ou não vulnerável.</p>
+              <h4><b>2.</b>Explique as três características que garantem que o ZMap é ideal para varreduras num
+                              espaço muito largo de endereços.</h4>
+                    <p align = "justify">ZMap envia pacotes tão rapidamente quanto a placa de rede do remetente
+                                          aguenta pulando protocolos de transporte e enviando <i>frames</i> diretamente
+                                          na camada Ethernet através de <i>raw sockets</i>. Não há armazenamento de
+                                          endereços e, por consequência, nem controle de timeouts e retransmissões, ou seja,
+                                          pode ser considerado sem estado. Somente um pacote é enviado para cada host alvo,
+                                          sem retransmissões.</p>
+               <h4><b>3.</b>Explique alguns modos de utilização do ZMap.</h4>
+                    <p align = "justify">Detecção global de vulnerabilidades: é possível descobrir o volume de hosts que
+                                          executam aplicações com falhas. Comunicação anônima: através de alterações no pacote
+                                          enviado durante a varredura, é possível que haja comunicação na qual não é possível
+                                          saber qual host é o verdadeiro alvo. Monitoramento da disponibilidade do serviço:
+                                          através do ICMP <i>sweep</i>, pode ser checada a disponibilidade de acesso a rede,
+                                          e, por conta da alta velocidade, permitir que medidas imediatas sejam tomadas. Medição
+                                          da adoção de protocolos: por haver portas associadas a certos protocolos, é possível
+                                          medir sua adesão ao longo do tempo. Uma vez que o ZMap encontra essa porta aberta, é
+                                          certo que tal protocolo esteja sendo utilizado.</p>
+              <h4><b>4.</b>Qual é a principal diferença entre o <i>TCP SYN</i> e o <i>TCP Connect?</i></h4>
+                    <p align = "justify">
+                      A principal diferença entre esses dois tipos de varredura é que ao ser recebido uma resposta
+                      SYN/ACK do servidor, o TCP SYN envia um RST para que a conexão não seja completada, já o TCP
+                      Connect manda um ACK que estabelece a conexão. Assim, o TCP SYN acaba sendo bem mais rápido
+                      do que o TCP Connect, já que não precisa de uma conexão completa.
+                    </p>
             </div>
           </section>
     </div>
