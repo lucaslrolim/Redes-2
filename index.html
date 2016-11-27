@@ -302,7 +302,7 @@
                         <p align = "justify">
                           Apesar de conseguir fazer varreduras rápidas no espaço IPv4, ZMap ainda não é rápido o bastante para fazer
                           varreduras no espaço de endereços IPv6. Além disso, o ZMap também está limitado pela velocidade da internet
-                          do host de destino. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos,
+                          do host remetente. Uma internet mais lenta do que a usada para testes [1] pode resultar em scans mais lentos,
                           enquanto uma internet mais rápida pode acabar sobrecarregando redes e hosts.
                         </p>
                 </div>
@@ -577,7 +577,7 @@
                <h4>Retransmissão</h4>
                     <p align = "justify">
                       Enquanto NMap transmite, por padrão, dois pacotes por porta e faz adaptações de retransmissão de
-                      acordo com o timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de
+                      acordo com os timeouts causados por perda de pacotes, ZMap sempre manda uma quantidade fixa de
                       pacotes (um). Apesar de parecer que esse scan acaba ficando defasado no quesito confiabilidade, foi
                       estimado que, mesmo com o scan usando apenas um pacote e sem uso de timeouts, 98% dos alvos são varridos.
                     </p>
