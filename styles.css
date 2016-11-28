@@ -285,3 +285,8 @@ html, body {
 blockquote {
   font-size: 18px;
   }
+
+#pratica figure img {
+  max-width: 100%;
+  height: auto;
+}

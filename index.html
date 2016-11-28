@@ -58,6 +58,7 @@
           <a href="#nmap" class="mdl-layout__tab">NMap</a>
           <a href="#zmap" class="mdl-layout__tab">ZMap</a>
           <a href="#comparacoes" class="mdl-layout__tab">Comparações</a>
+          <a href="#pratica" class="mdl-layout__tab">Teste Prático</a>
           <a href="#conclusao" class="mdl-layout__tab">Conclusão</a>
           <a href="#perguntas" class="mdl-layout__tab">Perguntas</a>
           <a href="#bibliografia" class="mdl-layout__tab">Bibliografia</a>
@@ -643,6 +644,92 @@
           </section>
     </div>
 
+    <div class="mdl-layout__tab-panel" id="pratica">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <p>Para fins de aplicação dos conceitos apresentados aqui nesse trabalho, foi realizado um teste prático utilizando um ambiente virtual, emulado pelo Virtual Box, com sistema operacional Kali Linux.</p>
+              <center>
+	              <figure>
+	              	<img src="images/pratica/redes2-3.png">
+	              	<figcaption>
+	              		Máquina Virtual sendo criada
+	              	</figcaption>
+	              </figure>
+              </center>
+              <p>Antes de apresentar de fato os testes, abaixo estão mais alguns conceitos importantes para pleno compreendimento do procedimento realizado:</p>
+
+              <p><b>VirtualBox:</b> Ambiente de virtualização de máquinas Open Source, sob licença GNU GPL. É compatível com Windows, Solaris, Linux e Macintosh, e suporta praticamente todos os tipos de sistemas operacionais existentes. Há uma grande comunidade focada no desenvolvimento e aprimoração do produto.</p>
+
+              <p><b>Kali Linux:</b> É uma distribuição Linux baseada no Debian, voltado para auditoria de segurança de computadores em geral. Dispõe de inúmeros softwares para testes de segurança, dentre eles o NMap, apresentado neste trabalho.</p>
+
+              <h4>O Teste Prático</h4>
+              <p>Tendo instalado o ambiente necessário, foi realizado o seguinte teste:
+<b>Nmap –sp 192.168.0.0-100</b> <em>(faz a varredura dos endereços de IP de 192-168.0.0 até 192-168.0.101)</em><br>
+O resultado foi o seguinte:</p>
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-1.png">
+						<figcaption>
+							Teste 1 - O tempo necessário para analisar cada IP é irrisório
+						</figcaption>
+					</figure>
+				</center>
+
+				<p>O segundo teste realizado foi Nmap –sS 192.168.0.NUMERO_PORTA -O
+(Realiza a varredura da porta de número escolhido utilizando a técnica Nmap. O parâmetro Ss significa que estamos usando a técnica SYN scan. O parâmetro –O, por sua vez, significa que estamos fazendo uma detecção de Sistema Operacional.)</p>
+
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-3.png">
+						<figcaption>
+							Teste 2 - Nesse caso vemos que todas as requisições foram filtradas, o que nos lembra da importância do Firewall.
+						</figcaption>
+					</figure>
+				</center>
+
+				<p>Algumas vezes somos capazes de obter alguma informação mesmo com as requisições do Nmap sendo filtradas. Contudo, esses resultados não são confiáveis. Abaixo um exemplo.</p>
+				
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-5.png">
+						<figcaption>
+							Teste 3 - Exemplo de testes com resultados não confiáveis.
+						</figcaption>
+					</figure>
+				</center>
+
+				<p>Em determinados casos um aviso RTTVAR (Round Trip Time Variation) é exibido devido ao aumento do tempo para se varrer uma ou mais portas. Geralmente é causado por filtros que são usados pelo Firewall da “vítima”.</p>
+
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-6.png">
+						<figcaption>
+							Teste 4 - RTTVAR sendo exibido após tentativa de varredura em uma vítima com Firewall.
+						</figcaption>
+					</figure>
+				</center>
+
+				<p>Em um dos testes foi possível comprovar também o efeito de uma boa configuração de segurança contra uma varredura de portas:</p>
+
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-7.png">
+						<figcaption>
+							Teste 5 - Escanear a porta de um determinado endereço demorou 44 minutos, quando os demais comumente demoraram segundos.
+						</figcaption>
+					</figure>
+				</center>
+
+				<p>Abaixo está o exemplo de portas que estão abertas, informadas após uma varredura do NMap:</p>
+
+				<center>
+					<figure>
+						<img src="images/pratica/redes2-kali-8.png">
+					</figure>
+				</center>
+            </div>
+          </section>
+    </div>
 
 
         <footer class="mdl-mega-footer">
